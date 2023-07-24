@@ -1,6 +1,9 @@
 {
     "nav": {
         "home": "Home",
+        "catalogue": "Catalogue",
+        "products": "Products",
+        "categories": "Categories",
         "singleMenuItem": "Single menu item",
         "collapseMenu": {
             "collapseMenu": "Collapse menu item",

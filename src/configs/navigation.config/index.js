@@ -17,6 +17,37 @@ const navigationConfig = [
     },
     /** Example purpose only, please remove */
     {
+        key: 'catalogue',
+        path: '',
+        title: 'Catalogue',
+        translateKey: 'nav.catalogue',
+        icon: 'product',
+        type: NAV_ITEM_TYPE_TITLE,
+        authority: [],
+        subMenu: [
+            {
+                key: 'catalogue.products',
+                path: '/products',
+                title: 'Products',
+                translateKey: 'nav.products',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
+            {
+                key: 'catalogue.categories',
+                path: '/categories',
+                title: 'Categories',
+                translateKey: 'nav.categories',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
+        ],
+    },
+    {
         key: 'singleMenuItem',
         path: '/single-menu-view',
         title: 'Single menu item',

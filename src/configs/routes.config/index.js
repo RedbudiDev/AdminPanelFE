@@ -10,6 +10,19 @@ export const protectedRoutes = [
         component: React.lazy(() => import('views/Home')),
         authority: [],
     },
+    {
+        key: 'catalogue.products',
+        path: '/products',
+        component: React.lazy(() => import('views/Products')),
+        authority: [],
+    },
+
+    {
+        key: 'catalogue.categories',
+        path: '/categories',
+        component: React.lazy(() => import('views/Categories')),
+        authority: [],
+    },
     /** Example purpose only, please remove */
     {
         key: 'singleMenuItem',
