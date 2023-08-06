@@ -1,7 +1,8 @@
+import TablePage from 'components/layout/Pages/TablePage/TablePage'
 import React from 'react'
 
 const Categories = () => {
-    return <div>Kategorije</div>
+    return <TablePage title={'Categories'} />
 }
 
 export default Categories
