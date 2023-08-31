@@ -1,6 +1,8 @@
 import React from 'react'
 import authRoute from './authRoute'
 
+import productsFields from '../pages.config/products.js'
+
 export const publicRoutes = [...authRoute]
 
 export const protectedRoutes = [
@@ -13,10 +15,27 @@ export const protectedRoutes = [
     {
         key: 'catalogue.products',
         path: '/products',
-        component: React.lazy(() => import('views/Products')),
+        component: React.lazy(() => import('views/Default')),
         authority: [],
+        props: {
+            apiPath: '/products',
+            pageType: 'table',
+            title: 'Products',
+            fields: productsFields,
+        },
     },
-
+    {
+        key: 'catalogue.products.item',
+        path: '/products/:id',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/products',
+            pageType: 'form',
+            title: 'New product',
+            fields: productsFields,
+        },
+    },
     {
         key: 'catalogue.categories',
         path: '/categories',

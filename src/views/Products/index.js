@@ -1,14 +1,14 @@
 import TablePage from 'components/layout/Pages/TablePage/TablePage'
 import React, { useEffect } from 'react'
-import fields from '../../configs/pages.config/products.json'
+import fields from '../../configs/pages.config/products.js'
 import { useNavigate } from 'react-router-dom'
 
 //remove after api connection
 import mock from '../../mock/data/productsData.json'
 
-const Products = () => {
+const Products = (props) => {
     /*Na ovom nivou se povlace podaci i prosledjuju u komponente */
-
+    console.log(props)
     const navigate = useNavigate()
 
     const back = () => {

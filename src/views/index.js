@@ -36,6 +36,7 @@ const AllRoutes = (props) => {
                                         routeKey={route.key}
                                         component={route.component}
                                         {...route.meta}
+                                        {...route?.props}
                                     />
                                 </PageContainer>
                             </AuthorityGuard>
