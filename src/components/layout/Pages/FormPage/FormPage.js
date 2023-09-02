@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import Form from 'components/shared/Form/Form'
+import PageWrapper from '../PageWrapper/PageWrapper'
 
 const FormPage = ({
     title = '',
@@ -6,46 +7,10 @@ const FormPage = ({
     data = {},
     save = () => null,
 }) => {
-    const [formData, setFormData] = useState(data)
-
-    const fieldChangeHandler = ({ target }) => {
-        setFormData((oldData) => {
-            return { ...oldData, [target.name]: target.value }
-        })
-    }
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        save(formData)
-    }
-
     return (
-        <div>
-            <h3>{title}</h3>
-            <form onSubmit={submitHandler}>
-                {fields
-                    .filter((field) => field.inForm)
-                    .map((field) => {
-                        return (
-                            <div key={field.field}>
-                                <label htmlFor={field.field}>
-                                    {field.name}
-                                </label>
-                                <br />
-                                <input
-                                    id={field.field}
-                                    name={field.field}
-                                    type="text"
-                                    defaultValue={formData[field.field]}
-                                    onChange={fieldChangeHandler}
-                                />
-                                <br />
-                            </div>
-                        )
-                    })}
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
+        <PageWrapper title={title}>
+            <Form fields={fields} data={data} save={save} />
+        </PageWrapper>
     )
 }
 

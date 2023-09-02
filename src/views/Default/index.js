@@ -70,7 +70,14 @@ const DefaultPage = ({
 
     switch (pageType) {
         case 'table':
-            return <TablePage title={title} fields={fields} values={listData} />
+            return (
+                <TablePage
+                    title={title}
+                    fields={fields}
+                    values={listData}
+                    newButton
+                />
+            )
         case 'form':
             return (
                 <FormPage
