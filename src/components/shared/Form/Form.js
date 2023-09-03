@@ -1,5 +1,5 @@
 import { Button, FormContainer, FormItem } from 'components/ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import InputField from './InputFields'
 
 const Form = ({ fields, data, save }) => {
@@ -8,6 +8,12 @@ const Form = ({ fields, data, save }) => {
         defaultData[field.field] = field.defaultValue
     }
     const [formData, setFormData] = useState({ ...defaultData, ...data })
+
+    useEffect(() => {
+        setFormData((oldData) => {
+            return { ...oldData, ...data }
+        })
+    }, [data])
 
     const [errors, setErrors] = useState({})
 

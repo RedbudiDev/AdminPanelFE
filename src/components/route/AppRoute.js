@@ -32,7 +32,7 @@ const AppRoute = ({ component: Component, routeKey, ...props }) => {
         handleLayoutChange()
     }, [location, handleLayoutChange])
 
-    return <Component {...props} />
+    return <Component {...props} key={routeKey} />
 }
 
 export default AppRoute

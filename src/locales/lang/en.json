@@ -4,6 +4,8 @@
         "catalogue": "Catalogue",
         "products": "Products",
         "categories": "Categories",
+        "settings": "settings",
+        "site": "website",
         "singleMenuItem": "Single menu item",
         "collapseMenu": {
             "collapseMenu": "Collapse menu item",

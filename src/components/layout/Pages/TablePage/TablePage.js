@@ -5,8 +5,10 @@ import THead from 'components/ui/Table/THead'
 import Tr from 'components/ui/Table/Tr'
 import TBody from 'components/ui/Table/TBody'
 import Td from 'components/ui/Table/Td'
+import { useNavigate } from 'react-router-dom'
 
 const TablePage = ({ title, fields = [], values = [], ...props }) => {
+    const navigate = useNavigate()
     return (
         <PageWrapper title={title} {...props}>
             <Table>
@@ -22,7 +24,16 @@ const TablePage = ({ title, fields = [], values = [], ...props }) => {
                         <Tr key={row.id}>
                             {fields.map((item) => {
                                 let field = item.field
-                                return <Td key={field}>{row[field]}</Td>
+                                return (
+                                    <Td
+                                        key={field}
+                                        onClick={() => {
+                                            navigate(`${row.id}`)
+                                        }}
+                                    >
+                                        {row[field]}
+                                    </Td>
+                                )
                             })}
                         </Tr>
                     ))}

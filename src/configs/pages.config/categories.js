@@ -1,7 +1,7 @@
-const productsFields = [
+const categoriesFields = [
     {
         field: 'id',
-        name: 'Product ID',
+        name: 'Category ID',
         type: 'text',
         description: '',
         placeholder: '',
@@ -26,34 +26,8 @@ const productsFields = [
         defaultValue: '',
     },
     {
-        field: 'sku',
-        name: 'SKU',
-        type: 'text',
-        description: '',
-        placeholder: '',
-        inTable: true,
-        inForm: true,
-        disabled: false,
-        sortable: true,
-        required: true,
-        defaultValue: '',
-    },
-    {
-        field: 'checkbox',
-        name: 'checkbox',
-        type: 'checkbox',
-        description: '',
-        placeholder: '',
-        inTable: true,
-        inForm: true,
-        disabled: false,
-        sortable: true,
-        required: true,
-        defaultValue: false,
-    },
-    {
-        field: 'textarea',
-        name: 'textarea',
+        field: 'description',
+        name: 'Opis',
         type: 'textarea',
         description: '',
         placeholder: '',
@@ -66,4 +40,4 @@ const productsFields = [
     },
 ]
 
-export default productsFields
+export default categoriesFields

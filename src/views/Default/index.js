@@ -13,15 +13,16 @@ const DefaultPage = ({
     const params = useParams()
 
     const [listData, setListData] = useState([])
-
     const [getData, setGetData] = useState()
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        setIsLoading(true)
         if (params.id) {
             const getHandler = async () => {
                 if (params.id !== 'new') {
                     const data = await ApiService.fetchData({
-                        url: `apiPath/${params.id}`,
+                        url: `${apiPath}/${params.id}`,
                         method: 'get',
                     })
 
@@ -30,6 +31,7 @@ const DefaultPage = ({
             }
 
             getHandler()
+            setIsLoading(false)
         } else {
             const listHandler = async () => {
                 const data = await ApiService.fetchData({
@@ -41,6 +43,7 @@ const DefaultPage = ({
             }
 
             listHandler()
+            setIsLoading(false)
         }
     }, [])
 
@@ -54,7 +57,7 @@ const DefaultPage = ({
 
     const editData = (data) => {
         ApiService.fetchData({
-            url: `apiPath/${params.id}`,
+            url: `${apiPath}/${params.id}`,
             method: 'put',
             data,
         })
@@ -81,7 +84,7 @@ const DefaultPage = ({
         case 'form':
             return (
                 <FormPage
-                    title={title}
+                    title={getData?.name ? getData?.name : title}
                     fields={fields}
                     data={getData}
                     save={save}

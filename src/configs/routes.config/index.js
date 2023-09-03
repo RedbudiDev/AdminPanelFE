@@ -2,6 +2,15 @@ import React from 'react'
 import authRoute from './authRoute'
 
 import productsFields from '../pages.config/products.js'
+import categoriesFields from 'configs/pages.config/categories'
+import newsletterFields from 'configs/pages.config/newsletter'
+import bannersFields from 'configs/pages.config/banners'
+import warehousesFields from 'configs/pages.config/warehouses'
+import paramsFields from 'configs/pages.config/parameters'
+import countryFields from 'configs/pages.config/countries'
+import cityFields from 'configs/pages.config/cities'
+import manufacturersFields from 'configs/pages.config/manufacturers'
+import brandsFields from 'configs/pages.config/brands'
 
 export const publicRoutes = [...authRoute]
 
@@ -39,50 +48,193 @@ export const protectedRoutes = [
     {
         key: 'catalogue.categories',
         path: '/categories',
-        component: React.lazy(() => import('views/Categories')),
+        component: React.lazy(() => import('views/Default')),
         authority: [],
-    },
-    /** Example purpose only, please remove */
-    {
-        key: 'singleMenuItem',
-        path: '/single-menu-view',
-        component: React.lazy(() => import('views/demo/SingleMenuView')),
-        authority: [],
-    },
-    {
-        key: 'collapseMenu.item1',
-        path: '/collapse-menu-item-view-1',
-        component: React.lazy(() => import('views/demo/CollapseMenuItemView1')),
-        authority: [],
+        props: {
+            apiPath: '/categories',
+            pageType: 'table',
+            title: 'Categories',
+            fields: categoriesFields,
+        },
     },
     {
-        key: 'collapseMenu.item2',
-        path: '/collapse-menu-item-view-2',
-        component: React.lazy(() => import('views/demo/CollapseMenuItemView2')),
+        key: 'catalogue.categories.item',
+        path: '/categories/:id',
+        component: React.lazy(() => import('views/Default')),
         authority: [],
+        props: {
+            apiPath: '/categories',
+            pageType: 'form',
+            title: 'New category',
+            fields: categoriesFields,
+        },
     },
     {
-        key: 'groupMenu.single',
-        path: '/group-single-menu-item-view',
-        component: React.lazy(() =>
-            import('views/demo/GroupSingleMenuItemView')
-        ),
+        key: 'site.newsletter',
+        path: '/newsletter',
+        component: React.lazy(() => import('views/Default')),
         authority: [],
+        props: {
+            apiPath: '/newsletter',
+            pageType: 'table',
+            title: 'Newsletter',
+            fields: newsletterFields,
+        },
     },
     {
-        key: 'groupMenu.collapse.item1',
-        path: '/group-collapse-menu-item-view-1',
-        component: React.lazy(() =>
-            import('views/demo/GroupCollapseMenuItemView1')
-        ),
+        key: 'site.banners',
+        path: '/banners',
+        component: React.lazy(() => import('views/Default')),
         authority: [],
+        props: {
+            apiPath: '/banners',
+            pageType: 'table',
+            title: 'Banners',
+            fields: bannersFields,
+        },
     },
     {
-        key: 'groupMenu.collapse.item2',
-        path: '/group-collapse-menu-item-view-2',
-        component: React.lazy(() =>
-            import('views/demo/GroupCollapseMenuItemView2')
-        ),
+        key: 'site.banners.item',
+        path: '/banners/:id',
+        component: React.lazy(() => import('views/Default')),
         authority: [],
+        props: {
+            apiPath: '/banners',
+            pageType: 'form',
+            title: 'New banner',
+            fields: bannersFields,
+        },
+    },
+    {
+        key: 'settings.warehouses',
+        path: '/warehouses',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/warehouses',
+            pageType: 'table',
+            title: 'Warehouses',
+            fields: warehousesFields,
+        },
+    },
+    {
+        key: 'settings.warehouses.item',
+        path: '/warehouses/:id',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/warehouses',
+            pageType: 'form',
+            title: 'New warehouse',
+            fields: warehousesFields,
+        },
+    },
+    {
+        key: 'settings.parameters',
+        path: '/parameters',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/parameters',
+            pageType: 'table',
+            title: 'Parameters',
+            fields: paramsFields,
+        },
+    },
+    {
+        key: 'settings.parameters.item',
+        path: '/parameters/:id',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/parameters',
+            pageType: 'form',
+            title: 'New parameter',
+            fields: paramsFields,
+        },
+    },
+    {
+        key: 'settings.countries',
+        path: '/countries',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/countries',
+            pageType: 'table',
+            title: 'Countries',
+            fields: countryFields,
+        },
+    },
+    {
+        key: 'settings.cities',
+        path: '/cities',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/cities',
+            pageType: 'table',
+            title: 'Cities',
+            fields: cityFields,
+        },
+    },
+    {
+        key: 'settings.cities.item',
+        path: '/cities/:id',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/cities',
+            pageType: 'form',
+            title: 'New city',
+            fields: cityFields,
+        },
+    },
+    {
+        key: 'settings.manufacturers',
+        path: '/manufacturers',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/manufacturers',
+            pageType: 'table',
+            title: 'Manufacturers',
+            fields: manufacturersFields,
+        },
+    },
+    {
+        key: 'settings.manufacturers.item',
+        path: '/manufacturers/:id',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/manufacturers/:id',
+            pageType: 'form',
+            title: 'New manufacturer',
+            fields: manufacturersFields,
+        },
+    },
+    {
+        key: 'settings.brands',
+        path: '/brands',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/brands',
+            pageType: 'table',
+            title: 'Brands',
+            fields: brandsFields,
+        },
+    },
+    {
+        key: 'settings.brands.item',
+        path: '/brands/:id',
+        component: React.lazy(() => import('views/Default')),
+        authority: [],
+        props: {
+            apiPath: '/brands',
+            pageType: 'form',
+            title: 'New brand',
+            fields: brandsFields,
+        },
     },
 ]
